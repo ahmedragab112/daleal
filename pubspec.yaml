@@ -37,6 +37,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_native_splash: ^2.3.7
+  flutter_screenutil: ^5.9.0
   flutter_svg: ^2.0.9
   freezed: ^2.4.7
   intl: any
@@ -51,7 +52,7 @@ dev_dependencies:
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
 flutter:
-  generate: true 
+  generate: true
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
