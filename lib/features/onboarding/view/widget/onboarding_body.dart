@@ -1,19 +1,28 @@
-import 'package:daleal/core/utils/color/app_color.dart';
 import 'package:daleal/core/utils/spaceing/spaceing.dart';
 import 'package:daleal/core/utils/style/app_textstyle.dart';
 import 'package:daleal/features/onboarding/model/pageview_model.dart';
+import 'package:daleal/features/onboarding/view/widget/custom_pageindicator.dart';
+import 'package:daleal/features/onboarding/view/widget/pageview_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBoardingBody extends StatelessWidget {
-  const OnBoardingBody({super.key, required this.controller});
+  const OnBoardingBody(
+      {super.key,
+      required this.controller,
+      this.onPageChanged,
+      required this.index});
   final PageController controller;
+  final int index;
+  final Function(int)? onPageChanged;
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return SizedBox(
+      height: 700.h,
       child: PageView.builder(
+        onPageChanged: onPageChanged,
+        physics: const BouncingScrollPhysics(),
         controller: controller,
         itemCount: pages.length,
         itemBuilder: (context, index) {
@@ -26,29 +35,30 @@ class OnBoardingBody extends StatelessWidget {
                 fit: BoxFit.fill,
               ),
               const VerticalSpace(24),
-              SmoothPageIndicator(
-                controller: controller,
-                count: 3,
-                effect: const ExpandingDotsEffect(
-                  dotColor: AppColor.grey,
-                  dotHeight: 6,
-                  dotWidth: 10,
-                  activeDotColor: AppColor.secondryFilledColor,
-                ),
-              ),
+              CustomPageIndicator(controller: controller),
               const VerticalSpace(32),
               Text(
                 pages[index].title,
-                style: AppTextStyle.font24MediumPoppinsBlack,
+                style:
+                    AppTextStyle.font24MediumPoppinsBlack.copyWith(height: 1.5),
                 textAlign: TextAlign.center,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
               ),
               const VerticalSpace(16),
               Text(
-                pages[index].descreipion,
-                style: AppTextStyle.font16LightPoppinsBlack,
+                pages[index].description,
+                style: AppTextStyle.font16LightPoppinsBlack.copyWith(height: 1.5),
                 textAlign: TextAlign.center,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
               ),
-              const Spacer(),
+              const VerticalSpace(88),
+              PageViewButton(
+                controller: controller,
+                index: index,
+              ),
+              const VerticalSpace(16)
             ],
           );
         },

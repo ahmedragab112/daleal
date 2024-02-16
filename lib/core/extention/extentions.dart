@@ -19,7 +19,7 @@ extension NavigatorHelper on BuildContext {
         this, MaterialPageRoute(builder: (context) => widget));
   }
 
-  void pushReplacementNamed(String routeName, Object? arguments) {
+  void pushReplacementNamed(String routeName, {Object? arguments}) {
     Navigator.pushReplacementNamed(this, routeName, arguments: arguments);
   }
 
