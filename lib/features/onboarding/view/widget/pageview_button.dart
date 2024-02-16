@@ -8,7 +8,8 @@ import 'package:flutter/material.dart';
 class PageViewButton extends StatelessWidget {
   const PageViewButton({
     super.key,
-    required this.controller, required this.index,
+    required this.controller,
+    required this.index,
   });
   final int index;
   final PageController controller;
@@ -21,8 +22,8 @@ class PageViewButton extends StatelessWidget {
         controller.nextPage(
             duration: const Duration(seconds: 1), curve: Curves.easeIn);
         if (index == pages.length - 1) {
-          onBoardingVisited();
-          context.pushReplacementNamed(AppRoutes.loginPage);
+          onBoardingVisited().then(
+              (value) => context.pushReplacementNamed(AppRoutes.loginPage));
         }
       },
     );

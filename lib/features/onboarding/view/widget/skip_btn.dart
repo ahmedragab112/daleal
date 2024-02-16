@@ -1,5 +1,6 @@
 import 'package:daleal/config/router/app_routes.dart';
 import 'package:daleal/core/extention/extentions.dart';
+import 'package:daleal/core/function/onboarding_visited.dart';
 import 'package:daleal/core/utils/style/app_textstyle.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,8 @@ class SkipButton extends StatelessWidget {
         alignment: Alignment.topRight,
         child: TextButton(
           onPressed: () {
-            context.pushReplacementNamed(AppRoutes.loginPage);
+            onBoardingVisited().then(
+              (value) => context.pushReplacementNamed(AppRoutes.loginPage));
           },
           child: Text(
             'Skip',
