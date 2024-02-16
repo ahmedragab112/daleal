@@ -8,4 +8,5 @@ abstract class AppColor {
   static const Color secondryOutlineColor = Color(0xff9B6C59);
   static const Color primaryBlack = Color(0xff333333);
   static const Color grey = Color(0xffc4c4c4);
+
 }
