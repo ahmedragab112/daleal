@@ -18,24 +18,26 @@ class _OnBoardingViewState extends State<OnBoardingView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CustomScrollView(
-        physics: const BouncingScrollPhysics(),
-        slivers: [
-          const SliverToBoxAdapter(child: VerticalSpace(40)),
-          const SliverToBoxAdapter(child: SkipButton()),
-          const SliverToBoxAdapter(child: VerticalSpace(32)),
-          SliverToBoxAdapter(
-            child: OnBoardingBody(
-              controller: pageController,
-              onPageChanged: (index) {
-                this.index = index;
-                setState(() {});
-              },
-              index: index,
+      body: SafeArea(
+        child: CustomScrollView(
+          physics: const BouncingScrollPhysics(),
+          slivers: [
+            const SliverToBoxAdapter(child: VerticalSpace(40)),
+            const SliverToBoxAdapter(child: SkipButton()),
+            const SliverToBoxAdapter(child: VerticalSpace(32)),
+            SliverToBoxAdapter(
+              child: OnBoardingBody(
+                controller: pageController,
+                onPageChanged: (index) {
+                  this.index = index;
+                  setState(() {});
+                },
+                index: index,
+              ),
             ),
-          ),
-        ],
-      ).setPadding(context, horizontal: 16.h, enableMediaQuery: false),
+          ],
+        ).setPadding(context, horizontal: 16.h, enableMediaQuery: false),
+      ),
     );
   }
 }
