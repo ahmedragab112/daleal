@@ -12,16 +12,17 @@ class SkipButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Align(
-        alignment: Alignment.topRight,
-        child: TextButton(
-          onPressed: () {
-            onBoardingVisited().then(
+      alignment: Alignment.topRight,
+      child: GestureDetector(
+        onTap: () {
+          onBoardingVisited().then(
               (value) => context.pushReplacementNamed(AppRoutes.loginPage));
-          },
-          child: Text(
-            'Skip',
-            style: AppTextStyle.font16RegularPoppinsBlack,
-          ),
-        ));
+        },
+        child: Text(
+          'Skip',
+          style: AppTextStyle.font16RegularPoppinsBlack,
+        ),
+      ),
+    );
   }
 }

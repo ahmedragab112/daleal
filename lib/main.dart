@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await CacheHelper.init();
   setupLocator();
+  await locator<CacheHelper>().init();
   runApp(const Daleal());
 }

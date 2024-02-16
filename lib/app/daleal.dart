@@ -30,4 +30,3 @@ class Daleal extends StatelessWidget {
     );
   }
 }
-
