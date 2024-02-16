@@ -11,8 +11,8 @@ class OnBoardingView extends StatefulWidget {
 }
 
 class _OnBoardingViewState extends State<OnBoardingView> {
-  final PageController pageController = PageController(initialPage: 0);
   int index = 0;
+  PageController pageController = PageController(initialPage: 0);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +30,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                 onPageChanged: (index) {
                   this.index = index;
                   setState(() {});
-                }, index: index,
+                },
+                index: index,
               ),
             ),
           ],

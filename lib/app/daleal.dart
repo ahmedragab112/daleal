@@ -1,6 +1,6 @@
 import 'package:daleal/config/router/app_router.dart';
-import 'package:daleal/config/router/app_routes.dart';
 import 'package:daleal/config/theme/theme.dart';
+import 'package:daleal/core/function/get_inital_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,7 +23,7 @@ class Daleal extends StatelessWidget {
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           debugShowCheckedModeBanner: false,
-          initialRoute: AppRoutes.onBoardingView,
+          initialRoute: getInitRoute(),
           onGenerateRoute: AppRouter.onGenerateRoutes,
         );
       },

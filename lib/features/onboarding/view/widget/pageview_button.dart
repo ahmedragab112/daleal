@@ -1,5 +1,6 @@
 import 'package:daleal/config/router/app_routes.dart';
 import 'package:daleal/core/extention/extentions.dart';
+import 'package:daleal/core/function/onboarding_visited.dart';
 import 'package:daleal/core/utils/widget/custom_btn.dart';
 import 'package:daleal/features/onboarding/model/pageview_model.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,7 @@ class PageViewButton extends StatelessWidget {
         controller.nextPage(
             duration: const Duration(seconds: 1), curve: Curves.easeIn);
         if (index == pages.length - 1) {
+          onBoardingVisited();
           context.pushReplacementNamed(AppRoutes.loginPage);
         }
       },
