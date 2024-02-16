@@ -1,4 +1,4 @@
-class AppAssets {
+abstract class AppAssets {
   static const String svgOnBoarding1 = 'assets/svg/onBoardin1.svg';
   static const String svgOnBoarding2 = 'assets/svg/onBoardin2.svg';
   static const String svgOnBoarding3 = 'assets/svg/onBoardin3.svg';
