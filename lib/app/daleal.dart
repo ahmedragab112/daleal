@@ -23,7 +23,7 @@ class Daleal extends StatelessWidget {
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           debugShowCheckedModeBanner: false,
-          initialRoute: AppRoutes.loginPage,
+          initialRoute: AppRoutes.onBoardingView,
           onGenerateRoute: AppRouter.onGenerateRoutes,
         );
       },
@@ -31,14 +31,3 @@ class Daleal extends StatelessWidget {
   }
 }
 
-
-/*MaterialApp(
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.loginPage,
-      onGenerateRoute: AppRouter.onGenerateRoutes,
-    );
-  */
