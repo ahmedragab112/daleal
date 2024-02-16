@@ -28,4 +28,8 @@ abstract class AppTextStyle {
       fontSize: 12.sp,
       fontWeight: FontWeight.w600,
       color: AppColor.primaryBrown);
+  static TextStyle font28SemiBoldPoppinsaBlack = GoogleFonts.poppins(
+      fontSize: 28.sp,
+      fontWeight: FontWeight.w600,
+      color: AppColor.primaryBlack);
 }

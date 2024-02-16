@@ -15,36 +15,38 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: CustomScrollView(
-      physics: const BouncingScrollPhysics(),
-      slivers: [
-        const SliverToBoxAdapter(child: LoginBackGround()),
-        const SliverToBoxAdapter(child: VerticalSpace(32)),
-        const SliverToBoxAdapter(child: WelcomeText()),
-        const SliverToBoxAdapter(child: VerticalSpace(48)),
-        SliverToBoxAdapter(
-          child: const Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              CustomTextFiled(
-                lableText: 'Email Address',
-              ),
-              VerticalSpace(25),
-              PasswordFormFiled(),
-              VerticalSpace(16),
-              ForgotPasswordText(),
-              VerticalSpace(102),
-              LoginButton(),
-            ],
-          ).setPadding(context, enableMediaQuery: false, horizontal: 16),
-        ),
-        const SliverToBoxAdapter(
-          child: VerticalSpace(16),
-        ),
-        const SliverToBoxAdapter(
-          child: DtHaveAnAccountWidget(),
-        )
-      ],
+        body: SafeArea(
+      child: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
+        slivers: [
+          const SliverToBoxAdapter(child: LoginBackGround()),
+          const SliverToBoxAdapter(child: VerticalSpace(32)),
+          const SliverToBoxAdapter(child: WelcomeText()),
+          const SliverToBoxAdapter(child: VerticalSpace(48)),
+          SliverToBoxAdapter(
+            child: const Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                CustomTextFiled(
+                  lableText: 'Email Address',
+                ),
+                VerticalSpace(25),
+                PasswordFormFiled(),
+                VerticalSpace(16),
+                ForgotPasswordText(),
+                VerticalSpace(102),
+                CustomPrimaryButton(text: 'Login',),
+              ],
+            ).setPadding(context, enableMediaQuery: false, horizontal: 16),
+          ),
+          const SliverToBoxAdapter(
+            child: VerticalSpace(16),
+          ),
+          const SliverToBoxAdapter(
+            child: DtHaveAnAccountWidget(),
+          )
+        ],
+      ),
     ));
   }
 }

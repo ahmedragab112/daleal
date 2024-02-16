@@ -1,3 +1,4 @@
+import 'package:daleal/core/utils/color/app_color.dart';
 import 'package:daleal/core/utils/widget/custom_textfiled.dart';
 import 'package:flutter/material.dart';
 
@@ -17,14 +18,16 @@ class _PasswordFormFiledState extends State<PasswordFormFiled> {
     return CustomTextFiled(
       lableText: 'Password',
       obscureText: obscureText,
-      suffixIcon: IconButton(
-          onPressed: () {
-            setState(() {});
-            obscureText = !obscureText;
-          },
-          icon: obscureText
-              ? const Icon(Icons.visibility_off)
-              : const Icon(Icons.remove_red_eye)),
+      suffixIcon: GestureDetector(
+        onTap: () {
+          setState(() {});
+          obscureText = !obscureText;
+        },
+        child: Icon(
+          obscureText ? Icons.visibility_off : Icons.remove_red_eye,
+          color: AppColor.primaryOrange,
+        ),
+      ),
     );
   }
 }
