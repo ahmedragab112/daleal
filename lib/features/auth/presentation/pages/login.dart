@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class Daleal extends StatelessWidget {
-  const Daleal({super.key});
+class Login extends StatelessWidget {
+  const Login({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold();
   }
 }
