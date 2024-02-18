@@ -2,11 +2,13 @@ import 'package:daleal/core/extention/extentions.dart';
 import 'package:daleal/core/utils/spaceing/spaceing.dart';
 import 'package:daleal/core/utils/style/app_textstyle.dart';
 import 'package:daleal/core/utils/widget/custom_textfiled.dart';
+import 'package:daleal/features/auth/cubit/auth_cubit.dart';
 import 'package:daleal/features/auth/view/widgets/custom_checkbox.dart';
 import 'package:daleal/features/auth/view/widgets/login_button.dart';
 import 'package:daleal/features/auth/view/widgets/password_formfiled.dart';
 import 'package:daleal/features/auth/view/widgets/sign_up_richtext.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SingUp extends StatelessWidget {
   const SingUp({super.key});
@@ -31,25 +33,31 @@ class SingUp extends StatelessWidget {
               child: VerticalSpace(48),
             ),
             SliverToBoxAdapter(
-              child: const Column(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   CustomTextFiled(
                     lableText: 'FirstName',
+                    controller: TextEditingController(),
                   ),
-                  VerticalSpace(25),
+                  const VerticalSpace(25),
                   CustomTextFiled(
                     lableText: 'LastName',
+                    controller: TextEditingController(),
                   ),
-                  VerticalSpace(25),
+                  const VerticalSpace(25),
                   CustomTextFiled(
                     lableText: 'Email Address',
+                    controller: context.read<AuthCubit>().signUpEmailController,
                   ),
-                  VerticalSpace(25),
-                  PasswordFormFiled(),
-                  VerticalSpace(16),
-                  AgreeToOurTerms(),
-                  VerticalSpace(72),
+                  const VerticalSpace(25),
+                  PasswordFormFiled(
+                    controller:
+                        context.read<AuthCubit>().signUpPasswordController,
+                  ),
+                  const VerticalSpace(16),
+                  const AgreeToOurTerms(),
+                  const VerticalSpace(72),
                 ],
               ).setOnlyPadding(context,
                   enableMediaQuery: false, left: 14, right: 24),

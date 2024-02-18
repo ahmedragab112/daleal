@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 
 class PasswordFormFiled extends StatefulWidget {
   const PasswordFormFiled({
-    super.key,
+    super.key, required this.controller,
   });
+  final TextEditingController controller;
 
   @override
   State<PasswordFormFiled> createState() => _PasswordFormFiledState();
@@ -28,6 +29,7 @@ class _PasswordFormFiledState extends State<PasswordFormFiled> {
           color: AppColor.primaryOrange,
         ),
       ),
+      controller: widget.controller,
     );
   }
 }
