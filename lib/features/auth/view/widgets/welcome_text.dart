@@ -10,7 +10,7 @@ class WelcomeText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      'Welcome Back !',
+      'Welcome !',
       style: AppTextStyle.font24SemiBoldPoppinsaPrimryBlack,
       textAlign: TextAlign.center,
     );

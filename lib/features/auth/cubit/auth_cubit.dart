@@ -9,7 +9,10 @@ part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
   final AuthRepo authRepo;
+  final loginValidationKey= GlobalKey<FormState>();
+  final signUpValidationKey = GlobalKey<FormState>();
   AuthCubit({required this.authRepo}) : super(AuthInitial());
+  
   TextEditingController loginEmailController = TextEditingController();
   TextEditingController loginPasswordController = TextEditingController();
   TextEditingController signUpEmailController = TextEditingController();

@@ -10,19 +10,23 @@ class CustomTextFiled extends StatelessWidget {
       this.obscureText = false,
       this.suffixIcon,
       required this.lableText,
-      this.keyboardType = TextInputType.emailAddress, required this.controller});
+      this.keyboardType = TextInputType.emailAddress,
+      required this.controller,
+      required this.validator});
   final String? helperText;
   final bool? obscureText;
   final String lableText;
   final Widget? suffixIcon;
   final TextInputType? keyboardType;
   final TextEditingController controller;
+  final String? Function(String?) validator;
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       controller: controller,
       keyboardType: keyboardType,
       obscureText: obscureText!,
+      validator: validator,
       style: AppTextStyle.font14RegularPoppinsablack,
       decoration: InputDecoration(
         suffixIcon: suffixIcon,

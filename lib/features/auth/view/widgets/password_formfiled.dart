@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 
 class PasswordFormFiled extends StatefulWidget {
   const PasswordFormFiled({
-    super.key, required this.controller,
+    super.key,
+    required this.controller,
   });
   final TextEditingController controller;
 
@@ -30,6 +31,13 @@ class _PasswordFormFiledState extends State<PasswordFormFiled> {
         ),
       ),
       controller: widget.controller,
+      validator: (value) {
+        if (value == null ||
+            value.isEmpty ) {
+          return 'Please enter a valid password';
+        }
+        return null;
+      },
     );
   }
 }
