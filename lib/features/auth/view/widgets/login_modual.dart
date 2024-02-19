@@ -5,8 +5,8 @@ import 'package:daleal/core/utils/spaceing/spaceing.dart';
 import 'package:daleal/core/utils/widget/custom_textfiled.dart';
 import 'package:daleal/features/auth/cubit/auth_cubit.dart';
 import 'package:daleal/features/auth/view/widgets/forgot_password_text.dart';
-import 'package:daleal/features/auth/view/widgets/login_button.dart';
 import 'package:daleal/features/auth/view/widgets/password_formfiled.dart';
+import 'package:daleal/features/auth/view/widgets/primery_login_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -41,7 +41,7 @@ class LoginModual extends StatelessWidget {
           const VerticalSpace(16),
           const ForgotPasswordText(),
           const VerticalSpace(102),
-          const CustomPrimaryButton(
+          const CustomPrimaryLoginButton(
             text: 'Login',
           ),
         ],

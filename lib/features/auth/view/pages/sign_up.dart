@@ -24,7 +24,7 @@ class SingUp extends StatelessWidget {
             ),
             SliverToBoxAdapter(child: SignUpModual()),
             SliverToBoxAdapter(
-              child: CustomPrimaryButton(
+              child: CustomPrimarySignUpButton(
                 text: 'Sign Up',
               ),
             ),

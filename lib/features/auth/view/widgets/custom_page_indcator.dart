@@ -34,7 +34,7 @@ class CustomBlocListener extends StatelessWidget {
         } else if (state is AuthSuccess) {
           MotionToast.success(
             title: Text(
-              "Success",
+              "Success ",
               style: AppTextStyle.font16RegularPoppinsBlack,
               textAlign: TextAlign.center,
             ),

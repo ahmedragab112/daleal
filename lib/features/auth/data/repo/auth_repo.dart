@@ -10,17 +10,26 @@ class AuthRepo {
   Future<ServerResponse<User>> signUp(Account account) async {
     try {
       final user = await webservicse.signUp(account.email, account.password);
-      return ServerResponse.data(user!);
+      await user!.sendEmailVerification();
+      if (user.emailVerified) {
+      return ServerResponse.data(user);    
+      }
+      return const ServerResponse.error(error: 'please verify your email First');
     } on FirebaseAuthException catch (e) {
       return ServerResponse.error(error: e.message!);
     } catch (e) {
       return ServerResponse.error(error: e.toString());
     }
   }
-   Future<ServerResponse<User>> login(Account account) async {
+
+  Future<ServerResponse<User>> login(Account account) async {
     try {
       final user = await webservicse.login(account.email, account.password);
-      return ServerResponse.data(user!);
+      if (user!.emailVerified) {
+        return ServerResponse.data(user);
+      }
+      return const ServerResponse.error(
+          error: 'please verify your email First');
     } on FirebaseAuthException catch (e) {
       return ServerResponse.error(error: e.message!);
     } catch (e) {
