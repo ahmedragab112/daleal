@@ -10,7 +10,7 @@ extension NavigatorHelper on BuildContext {
     );
   }
 
-  void pushNamed(String routeName, Object? arguments) {
+  void pushNamed(String routeName, {Object? arguments}) {
     Navigator.pushNamed(this, routeName, arguments: arguments);
   }
 
@@ -84,5 +84,13 @@ extension PaddingToWidget on Widget {
       padding: EdgeInsets.all(padding),
       child: this,
     );
+  }
+}
+
+extension ShowSnackBar on BuildContext {
+  void showSnackBar(String message) {
+    ScaffoldMessenger.of(this).showSnackBar(SnackBar(
+      content: Text(message),
+    ));
   }
 }

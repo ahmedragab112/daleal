@@ -1,8 +1,13 @@
 import 'package:daleal/config/router/app_routes.dart';
+import 'package:daleal/core/di/service_locator.dart';
+import 'package:daleal/features/auth/cubit/auth_cubit.dart';
+import 'package:daleal/features/auth/data/repo/auth_repo.dart';
 import 'package:daleal/features/auth/view/pages/login.dart';
 import 'package:daleal/features/auth/view/pages/sign_up.dart';
+import 'package:daleal/features/home/presentation/pages/home.dart';
 import 'package:daleal/features/onboarding/view/screen/onboarding_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppRouter {
   static Route<Widget> onGenerateRoutes(RouteSettings settings) {
@@ -10,7 +15,10 @@ class AppRouter {
       case AppRoutes.loginPage:
         return MaterialPageRoute(
           settings: settings,
-          builder: (context) => const Login(),
+          builder: (context) => BlocProvider(
+            create: (context) => AuthCubit(authRepo: locator<AuthRepo>()),
+            child: const Login(),
+          ),
         );
       case AppRoutes.onBoardingView:
         return MaterialPageRoute(
@@ -20,7 +28,15 @@ class AppRouter {
       case AppRoutes.signUp:
         return MaterialPageRoute(
           settings: settings,
-          builder: (context) => const SingUp(),
+          builder: (context) =>  BlocProvider(
+            create: (context) => AuthCubit(authRepo: locator<AuthRepo>()),
+            child: const SingUp(),
+          ),
+        );
+         case AppRoutes.home:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (context) =>  const Home(),
         );
 
       default:
