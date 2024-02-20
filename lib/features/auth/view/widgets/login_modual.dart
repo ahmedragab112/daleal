@@ -1,12 +1,11 @@
-
 import 'package:daleal/core/extention/extentions.dart';
 import 'package:daleal/core/helper/app_regex.dart';
 import 'package:daleal/core/utils/spaceing/spaceing.dart';
 import 'package:daleal/core/utils/widget/custom_textfiled.dart';
 import 'package:daleal/features/auth/cubit/auth_cubit.dart';
 import 'package:daleal/features/auth/view/widgets/forgot_password_text.dart';
-import 'package:daleal/features/auth/view/widgets/login_button.dart';
 import 'package:daleal/features/auth/view/widgets/password_formfiled.dart';
+import 'package:daleal/features/auth/view/widgets/primery_login_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -26,13 +25,14 @@ class LoginModual extends StatelessWidget {
           CustomTextFiled(
             lableText: 'Email Address',
             controller: context.read<AuthCubit>().loginEmailController,
-             validator: (value) {
-              if (value == null || value.isEmpty|| AppRegex.isEmailValid(value) == false) {
+            validator: (value) {
+              if (value == null ||
+                  value.isEmpty ||
+                  AppRegex.isEmailValid(value) == false) {
                 return 'Please enter a valid email';
               }
               return null;
-           
-             },
+            },
           ),
           const VerticalSpace(25),
           PasswordFormFiled(
@@ -40,8 +40,8 @@ class LoginModual extends StatelessWidget {
           ),
           const VerticalSpace(16),
           const ForgotPasswordText(),
-          const VerticalSpace(102),
-          const CustomPrimaryButton(
+          const VerticalSpace(80),
+          const CustomPrimaryLoginButton(
             text: 'Login',
           ),
         ],

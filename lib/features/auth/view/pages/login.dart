@@ -12,34 +12,35 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: SafeArea(
-        child: CustomScrollView(
-          physics: BouncingScrollPhysics(),
-          slivers: [
-            SliverToBoxAdapter(
-              child: LoginBackGround(),
-            ),
-            SliverToBoxAdapter(
-              child: VerticalSpace(32),
-            ),
-            SliverToBoxAdapter(child: WelcomeText()),
-            SliverToBoxAdapter(
-              child: VerticalSpace(48),
-            ),
-            SliverToBoxAdapter(
-              child: LoginModual(),
-            ),
-            SliverToBoxAdapter(
-              child: VerticalSpace(16),
-            ),
-            SliverToBoxAdapter(
-              child: DtHaveAnAccountWidget(),
-            ),
-            SliverToBoxAdapter(
-              child: CustomBlocListener(),
-            )
-          ],
-        ),
+      body: CustomScrollView(
+        physics: NeverScrollableScrollPhysics(),
+        slivers: [
+          SliverToBoxAdapter(
+            child: LoginBackGround(),
+          ),
+          SliverToBoxAdapter(
+            child: VerticalSpace(32),
+          ),
+          SliverToBoxAdapter(child: WelcomeText()),
+          SliverToBoxAdapter(
+            child: VerticalSpace(48),
+          ),
+          SliverToBoxAdapter(
+            child: LoginModual(),
+          ),
+          SliverToBoxAdapter(
+            child: VerticalSpace(16),
+          ),
+          SliverToBoxAdapter(
+            child: DtHaveAnAccountWidget(),
+          ),
+          SliverToBoxAdapter(
+            child: CustomBlocListener(),
+          ),
+          SliverToBoxAdapter(
+            child: VerticalSpace(18),
+          ),
+        ],
       ),
     );
   }

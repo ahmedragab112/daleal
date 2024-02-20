@@ -4,8 +4,8 @@ import 'package:daleal/features/auth/cubit/auth_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CustomPrimarySignUpButton extends StatelessWidget {
-  const CustomPrimarySignUpButton({
+class CustomPrimaryLoginButton extends StatelessWidget {
+  const CustomPrimaryLoginButton({
     super.key,
     required this.text,
   });
@@ -18,10 +18,10 @@ class CustomPrimarySignUpButton extends StatelessWidget {
       onTap: () {
         if (context
             .read<AuthCubit>()
-            .signUpValidationKey
+            .loginValidationKey
             .currentState!
             .validate()) {
-          context.read<AuthCubit>().signUp();
+          context.read<AuthCubit>().login();
         }
       },
     ).setAllPadding(16);
