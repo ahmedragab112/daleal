@@ -10,7 +10,7 @@ extension NavigatorHelper on BuildContext {
     );
   }
 
-  void pushNamed(String routeName, Object? arguments) {
+  void pushNamed(String routeName, {Object? arguments}) {
     Navigator.pushNamed(this, routeName, arguments: arguments);
   }
 

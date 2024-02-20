@@ -53,6 +53,22 @@ class CustomBlocListener extends StatelessWidget {
               color: AppColor.primaryOrange,
             ),
           );
+        } else if (state is ForgotPasswordError) {
+          MotionToast.error(
+            title: Text(
+              "An Error Occurred",
+              style: AppTextStyle.font16RegularPoppinsBlack,
+              textAlign: TextAlign.center,
+            ),
+            description: Text(
+              state.error,
+              style: AppTextStyle.font14RegularPoppinsablack,
+              textAlign: TextAlign.center,
+              maxLines: 2,
+            ),
+            animationType: AnimationType.fromTop,
+            animationCurve: Curves.easeIn,
+          ).show(context);
         }
       },
       child: const SizedBox.shrink(),

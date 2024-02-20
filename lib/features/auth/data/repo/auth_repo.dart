@@ -12,9 +12,10 @@ class AuthRepo {
       final user = await webservicse.signUp(account.email, account.password);
       await user!.sendEmailVerification();
       if (user.emailVerified) {
-      return ServerResponse.data(user);    
+        return ServerResponse.data(user);
       }
-      return const ServerResponse.error(error: 'please verify your email First');
+      return const ServerResponse.error(
+          error: 'please verify your email First');
     } on FirebaseAuthException catch (e) {
       return ServerResponse.error(error: e.message!);
     } catch (e) {
@@ -36,4 +37,6 @@ class AuthRepo {
       return ServerResponse.error(error: e.toString());
     }
   }
+
+ 
 }

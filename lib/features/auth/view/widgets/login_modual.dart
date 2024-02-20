@@ -1,4 +1,3 @@
-
 import 'package:daleal/core/extention/extentions.dart';
 import 'package:daleal/core/helper/app_regex.dart';
 import 'package:daleal/core/utils/spaceing/spaceing.dart';
@@ -26,13 +25,14 @@ class LoginModual extends StatelessWidget {
           CustomTextFiled(
             lableText: 'Email Address',
             controller: context.read<AuthCubit>().loginEmailController,
-             validator: (value) {
-              if (value == null || value.isEmpty|| AppRegex.isEmailValid(value) == false) {
+            validator: (value) {
+              if (value == null ||
+                  value.isEmpty ||
+                  AppRegex.isEmailValid(value) == false) {
                 return 'Please enter a valid email';
               }
               return null;
-           
-             },
+            },
           ),
           const VerticalSpace(25),
           PasswordFormFiled(
@@ -40,7 +40,7 @@ class LoginModual extends StatelessWidget {
           ),
           const VerticalSpace(16),
           const ForgotPasswordText(),
-          const VerticalSpace(102),
+          const VerticalSpace(80),
           const CustomPrimaryLoginButton(
             text: 'Login',
           ),

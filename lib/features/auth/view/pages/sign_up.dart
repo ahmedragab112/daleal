@@ -12,32 +12,32 @@ class SingUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: SafeArea(
-        child: CustomScrollView(
-          slivers: [
-            SliverToBoxAdapter(
-              child: VerticalSpace(108),
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: VerticalSpace(108),
+          ),
+          SliverToBoxAdapter(child: WelcomeText()),
+          SliverToBoxAdapter(
+            child: VerticalSpace(48),
+          ),
+          SliverToBoxAdapter(child: SignUpModual()),
+          SliverToBoxAdapter(
+            child: CustomPrimarySignUpButton(
+              text: 'Sign Up',
             ),
-            SliverToBoxAdapter(child: WelcomeText()),
-            SliverToBoxAdapter(
-              child: VerticalSpace(48),
-            ),
-            SliverToBoxAdapter(child: SignUpModual()),
-            SliverToBoxAdapter(
-              child: CustomPrimarySignUpButton(
-                text: 'Sign Up',
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: SignUpCustomRichText(),
-            ),
-            SliverToBoxAdapter(
-              child: CustomBlocListener(),
-            )
-          ],
-        ),
+          ),
+          SliverToBoxAdapter(
+            child: SignUpCustomRichText(),
+          ),
+          SliverToBoxAdapter(
+            child: CustomBlocListener(),
+          ),
+          SliverToBoxAdapter(
+            child: VerticalSpace(48),
+          ),
+        ],
       ),
     );
   }
 }
-
