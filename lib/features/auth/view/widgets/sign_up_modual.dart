@@ -22,7 +22,7 @@ class SignUpModual extends StatelessWidget {
         children: [
           CustomTextFiled(
             lableText: 'FirstName',
-            controller: TextEditingController(),
+            controller:  context.read<AuthCubit>().firstNameController,
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'Please enter your first name';
@@ -33,7 +33,7 @@ class SignUpModual extends StatelessWidget {
           const VerticalSpace(25),
           CustomTextFiled(
             lableText: 'LastName',
-            controller: TextEditingController(),
+            controller:  context.read<AuthCubit>().lastNameController,
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'Please enter your last name';

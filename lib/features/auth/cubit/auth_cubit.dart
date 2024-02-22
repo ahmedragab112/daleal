@@ -15,7 +15,8 @@ class AuthCubit extends Cubit<AuthState> {
   final signUpValidationKey = GlobalKey<FormState>();
   final forgotPasswordValidationKey = GlobalKey<FormState>();
   AuthCubit({required this.authRepo}) : super(AuthInitial());
-
+  TextEditingController firstNameController = TextEditingController();
+  TextEditingController lastNameController = TextEditingController();
   TextEditingController loginEmailController = TextEditingController();
   TextEditingController loginPasswordController = TextEditingController();
   TextEditingController signUpEmailController = TextEditingController();
@@ -24,9 +25,14 @@ class AuthCubit extends Cubit<AuthState> {
 
   Future<void> signUp() async {
     emit(AuthLoading());
-    var data = await authRepo.signUp(Account(
+    var data = await authRepo.signUp(
+      account: Account(
         email: signUpEmailController.text,
-        password: signUpPasswordController.text));
+        password: signUpPasswordController.text,
+        firstName: firstNameController.text,
+        lastName: lastNameController.text,
+      ),
+    );
     data.when(
         data: (data) => emit(AuthSuccess(user: data)),
         error: (error) => emit(AuthError(error: error)));
@@ -57,4 +63,6 @@ class AuthCubit extends Cubit<AuthState> {
       emit(ForgotPasswordError(error: e.toString()));
     }
   }
+
+ 
 }

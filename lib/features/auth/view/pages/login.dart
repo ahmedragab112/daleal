@@ -13,7 +13,7 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: CustomScrollView(
-        physics: NeverScrollableScrollPhysics(),
+        physics: ClampingScrollPhysics(),
         slivers: [
           SliverToBoxAdapter(
             child: LoginBackGround(),

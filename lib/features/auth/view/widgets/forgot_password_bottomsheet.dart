@@ -19,12 +19,8 @@ class ForgotPasswordWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var bloc = context.read<AuthCubit>();
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(color: AppColor.primaryOrange),
-        borderRadius: const BorderRadius.only(
-            topRight: Radius.circular(18), topLeft: Radius.circular(18)),
-      ),
+    return SizedBox(
+      
       width: double.infinity,
       child: Column(
         mainAxisSize: MainAxisSize.min,
