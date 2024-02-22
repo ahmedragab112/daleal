@@ -4,6 +4,8 @@ import 'package:daleal/features/auth/cubit/auth_cubit.dart';
 import 'package:daleal/features/auth/data/repo/auth_repo.dart';
 import 'package:daleal/features/auth/view/pages/login.dart';
 import 'package:daleal/features/auth/view/pages/sign_up.dart';
+import 'package:daleal/features/home/data/repositories/home_repo.dart';
+import 'package:daleal/features/home/presentation/cubit/home_cubit.dart';
 import 'package:daleal/features/home/presentation/pages/home.dart';
 import 'package:daleal/features/onboarding/view/screen/onboarding_view.dart';
 import 'package:flutter/material.dart';
@@ -28,15 +30,18 @@ class AppRouter {
       case AppRoutes.signUp:
         return MaterialPageRoute(
           settings: settings,
-          builder: (context) =>  BlocProvider(
+          builder: (context) => BlocProvider(
             create: (context) => AuthCubit(authRepo: locator<AuthRepo>()),
             child: const SingUp(),
           ),
         );
-         case AppRoutes.home:
+      case AppRoutes.home:
         return MaterialPageRoute(
           settings: settings,
-          builder: (context) =>  const Home(),
+          builder: (context) =>  BlocProvider(
+            create: (context) => HomeCubit(homeRepo:  locator<HomeRepo>()),
+            child:const Home(),
+          ),
         );
 
       default:

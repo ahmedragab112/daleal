@@ -1,5 +1,6 @@
 import 'package:daleal/core/error/error_handler.dart';
 import 'package:daleal/core/firebase/firebase_webservicse.dart';
+import 'package:daleal/core/model/user_model.dart';
 import 'package:daleal/features/auth/data/models/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -7,10 +8,19 @@ class AuthRepo {
   final FireBaseWebservicse webservicse;
 
   const AuthRepo({required this.webservicse});
-  Future<ServerResponse<User>> signUp(Account account) async {
+  Future<ServerResponse<User>> signUp({required Account account}) async {
     try {
       final user = await webservicse.signUp(account.email, account.password);
-      await user!.sendEmailVerification();
+      await Future.wait([
+        webservicse.addUser(
+          UserModel(
+              email: account.email,
+              firstName: account.firstName!,
+              lastName: account.lastName!),
+        ),
+        user!.sendEmailVerification()
+      ]);
+
       if (user.emailVerified) {
         return ServerResponse.data(user);
       }
@@ -38,5 +48,4 @@ class AuthRepo {
     }
   }
 
- 
 }

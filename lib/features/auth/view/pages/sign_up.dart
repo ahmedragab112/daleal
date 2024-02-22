@@ -13,6 +13,7 @@ class SingUp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: CustomScrollView(
+        physics: ClampingScrollPhysics(),
         slivers: [
           SliverToBoxAdapter(
             child: VerticalSpace(108),
