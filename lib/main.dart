@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-Bloc.observer = MyBlocObserver();
+  Bloc.observer = MyBlocObserver();
   setupLocator();
   await Future.wait([
     Firebase.initializeApp(
@@ -19,6 +19,5 @@ Bloc.observer = MyBlocObserver();
     locator<CacheHelper>().init()
   ]);
   checkAuthState();
-
   runApp(const Daleal());
 }

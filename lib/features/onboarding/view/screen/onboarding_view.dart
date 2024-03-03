@@ -31,8 +31,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                 onPageChanged: (index) {
                   this.index = index;
                   setState(() {});
-                },
-                index: index,
+                }, index: index,
               ),
             ),
           ],

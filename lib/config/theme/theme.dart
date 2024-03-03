@@ -60,6 +60,9 @@ abstract class AppTheme {
           side: BorderSide(color: AppColor.primaryOrange),
         ),
       ),
+      iconTheme:const IconThemeData(
+        color: AppColor.primaryOrange
+      ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         unselectedIconTheme:
             IconThemeData(color: AppColor.secondryOutlineColor),

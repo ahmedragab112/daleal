@@ -8,3 +8,7 @@ abstract class HomeState extends Equatable {
 }
 
 class HomeInitial extends HomeState {}
+
+class ChangePage extends HomeState {}
+
+class ChangePageSuccess extends HomeState {}

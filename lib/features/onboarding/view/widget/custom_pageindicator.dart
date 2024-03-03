@@ -1,4 +1,3 @@
-
 import 'package:daleal/core/utils/color/app_color.dart';
 import 'package:daleal/features/onboarding/model/pageview_model.dart';
 import 'package:flutter/material.dart';

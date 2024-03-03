@@ -6,8 +6,12 @@ part 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
   final HomeRepo homeRepo;
+  int currectIndex = 0;
+  
+
   HomeCubit({required this.homeRepo}) : super(HomeInitial());
   Future<void> signOut() async {
     await homeRepo.signOut();
   }
+ 
 }

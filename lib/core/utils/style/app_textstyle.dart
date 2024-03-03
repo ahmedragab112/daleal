@@ -32,4 +32,8 @@ abstract class AppTextStyle {
       fontSize: 28.sp,
       fontWeight: FontWeight.w600,
       color: AppColor.primaryBlack);
+  static TextStyle font20RegularBrown = GoogleFonts.poppins(
+      fontSize: 20,
+      color: AppColor.secondryFilledColor,
+      fontWeight: FontWeight.w400);
 }
